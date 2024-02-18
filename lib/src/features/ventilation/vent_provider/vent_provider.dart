@@ -22,8 +22,11 @@ class Ventilation extends StateNotifier<AsyncValue<String>> {
       return '25/min, co 2,5 sek';
     } else if (age >= 12 && age <= 18) {
       return '20/min, co 3 sek';
-    } else {
+    } else if (age >= 19 && age <= 23) {
       return '15/min, co 4 sek';
+    } else {
+      // 11 miesięcy
+      return '25/min, co 2,5 sek';
     }
   }
 }

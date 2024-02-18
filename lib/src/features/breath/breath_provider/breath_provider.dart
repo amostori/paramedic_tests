@@ -26,8 +26,11 @@ class Breath extends StateNotifier<AsyncValue<String>> {
       return 'Oddech 24 - 40/min';
     } else if (age >= 16 && age <= 22) {
       return 'Oddech 20 - 30/min';
-    } else {
+    } else if (age == 23) {
       return 'Oddech 12 - 30/min';
+    } else {
+      // 11 miesięcy
+      return 'Oddech 30 - 50/min';
     }
   }
 }

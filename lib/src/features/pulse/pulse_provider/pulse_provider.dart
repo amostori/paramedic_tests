@@ -26,8 +26,11 @@ class Pulse extends StateNotifier<AsyncValue<String>> {
       return 'Tętno 90 - 150/min';
     } else if (age >= 13 && age <= 16) {
       return 'Tętno 70 - 140/min';
-    } else {
+    } else if (age >= 17 && age <= 23) {
       return 'Tętno 60 - 130/min';
+    } else {
+      // 11 miesięcy
+      return 'Tętno 110 - 170/min';
     }
   }
 }

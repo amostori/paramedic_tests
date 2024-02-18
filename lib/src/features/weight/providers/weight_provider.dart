@@ -44,31 +44,33 @@ class Weight extends StateNotifier<AsyncValue<int>> {
       case 10:
         return 9;
       case 11:
-        return 9;
-      case 12:
         return 10;
-      case 13:
+      case 12:
         return 12;
-      case 14:
+      case 13:
         return 14;
-      case 15:
+      case 14:
         return 16;
-      case 16:
+      case 15:
         return 18;
-      case 17:
+      case 16:
         return 20;
-      case 18:
+      case 17:
         return 22;
-      case 19:
+      case 18:
         return 25;
-      case 20:
+      case 19:
         return 28;
-      case 21:
+      case 20:
         return 33;
-      case 22:
+      case 21:
         return 36;
+      case 22:
+        return 40;
       case 23:
         return 40;
+      case 24: // 11 miesięcy
+        return 10;
       default:
         return -1;
     }

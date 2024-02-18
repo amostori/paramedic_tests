@@ -32,7 +32,7 @@ class AgeHelper {
       case 14:
         return '4 lata';
       case 15:
-        return '5 lata';
+        return '5 lat';
       case 16:
         return '6 lat';
       case 17:
@@ -49,6 +49,8 @@ class AgeHelper {
         return '12 lat';
       case 23:
         return '>12 lat';
+      case 24:
+        return '11 miesięcy';
       default:
         return '';
     }
@@ -87,7 +89,7 @@ class AgeHelper {
       case 14:
         return '4 lata';
       case 15:
-        return '5 lata';
+        return '5 lat';
       case 16:
         return '6 lat';
       case 17:
