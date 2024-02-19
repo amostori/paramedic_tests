@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../weight/providers/weight_provider.dart';
 
 class MaskProvider extends StateNotifier<AsyncValue<String>> {
-  MaskProvider(this.delay, {required this.age}) : super(const AsyncData(''));
+  MaskProvider(this.delay, {required this.age})
+      : super(const AsyncData('Wielkość maski ambu'));
   final int delay;
   final int age;
 

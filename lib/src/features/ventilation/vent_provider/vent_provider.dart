@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../weight/providers/weight_provider.dart';
 
 class Ventilation extends StateNotifier<AsyncValue<String>> {
-  Ventilation(this.delay, {required this.age}) : super(const AsyncData(''));
+  Ventilation(this.delay, {required this.age})
+      : super(const AsyncData('Częstość wentylacji'));
   final int delay;
   final int age;
 

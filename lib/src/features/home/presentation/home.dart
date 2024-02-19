@@ -40,6 +40,10 @@ class Home extends StatelessWidget {
                 onTap: () => context.goNamed(AppRoute.mask.name),
                 title: 'Maska Ambu',
               ),
+              HomeListButton(
+                onTap: () => context.goNamed(AppRoute.drugs.name),
+                title: 'Dawkowanie leków',
+              ),
             ],
           ),
         ),

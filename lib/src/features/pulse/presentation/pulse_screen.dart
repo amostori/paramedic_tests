@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../utils/age_helper.dart';
 import '../../../utils/constants.dart';
 import '../../../widgets/my_floating_button.dart';
-import '../../../widgets/my_scaffold.dart';
+import '../../../widgets/body.dart';
 import '../pulse_provider/pulse_provider.dart';
 
 class PulseScreen extends ConsumerStatefulWidget {
@@ -17,7 +17,7 @@ class PulseScreen extends ConsumerStatefulWidget {
 }
 
 class _PulseScreenState extends ConsumerState<PulseScreen> {
-  String age = '';
+  String age = 'Wiek dziecka';
   int random = 0;
   @override
   Widget build(BuildContext context) {

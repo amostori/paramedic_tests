@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../weight/providers/weight_provider.dart';
 
 class Pulse extends StateNotifier<AsyncValue<String>> {
-  Pulse(this.delay, {required this.age}) : super(const AsyncData(''));
+  Pulse(this.delay, {required this.age})
+      : super(const AsyncData('Częstość '
+            'akcji serca'));
   final int age;
   final int delay;
 

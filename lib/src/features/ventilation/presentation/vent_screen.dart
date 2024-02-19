@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../utils/age_helper.dart';
 import '../../../utils/constants.dart';
 import '../../../widgets/my_floating_button.dart';
-import '../../../widgets/my_scaffold.dart';
+import '../../../widgets/body.dart';
 import '../vent_provider/vent_provider.dart';
 
 class VentScreen extends ConsumerStatefulWidget {
@@ -17,7 +17,7 @@ class VentScreen extends ConsumerStatefulWidget {
 }
 
 class _VentScreenState extends ConsumerState<VentScreen> {
-  String age = '';
+  String age = 'Wiek dziecka';
   int random = 0;
   @override
   Widget build(BuildContext context) {
