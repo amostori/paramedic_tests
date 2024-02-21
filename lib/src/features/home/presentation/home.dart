@@ -46,6 +46,10 @@ class Home extends StatelessWidget {
                 onTap: () => context.goNamed(AppRoute.drugs.name),
                 title: 'Dawkowanie leków',
               ),
+              HomeListButton(
+                onTap: () => context.goNamed(AppRoute.saturation.name),
+                title: 'Saturacja noworodka',
+              ),
             ],
           ),
         ),

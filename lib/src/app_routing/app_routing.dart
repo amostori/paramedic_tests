@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:paramedic_tests/src/features/drugs/presentation/drugScreen.dart';
+import 'package:paramedic_tests/src/features/saturation/presentation/saturation_screen.dart';
 
 import '../features/breath/presentation/breath_screen.dart';
 import '../features/home/presentation/home.dart';
@@ -19,6 +20,7 @@ enum AppRoute {
   vent,
   mask,
   drugs,
+  saturation,
 }
 
 final routeByName = GoRouter(
@@ -65,6 +67,11 @@ final routeByName = GoRouter(
           path: 'drugs',
           name: AppRoute.drugs.name,
           builder: (context, state) => const DrugScreen(),
+        ),
+        GoRoute(
+          path: 'saturation',
+          name: AppRoute.saturation.name,
+          builder: (context, state) => const SaturationScreen(),
         ),
       ],
     ),
