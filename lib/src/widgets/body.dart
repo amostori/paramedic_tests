@@ -52,6 +52,7 @@ class Body extends ConsumerWidget {
                     )
                   : SizedBox(
                       height: 100,
+                      width: double.infinity,
                       child: FittedBox(
                         fit: BoxFit.fitWidth,
                         child: Text(

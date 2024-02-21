@@ -1,10 +1,35 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:paramedic_tests/src/app_routing/app_routing.dart';
+import 'package:paramedic_tests/src/utils/constants.dart';
+import 'package:paramedic_tests/src/utils/strings_manager.dart';
 
-void main() {
+// Lokalizacja:
+// 1. Przygotuj pliki json z tłumaczeniami (en.json, pl.json)
+// 2. Dodaj metodę tr() do Stringów wymagających przetłumaczenia
+// 3. Do main() dodaj metodę EasyLocalization.ensureInitialized();
+// 4. Opakuj MyApp w widget EasyLocalization
+// Widget Phoenix jest potrzebny by zrestartować aplikację automatycznie po
+// zmianie np języka.
+// 5. W klasie MyApp do MaterialApp dodaj wpisy:
+// localizationsDelegates: context.localizationDelegates,
+// supportedLocales: context.supportedLocales,
+// locale: context.locale,
+
+// dart run build_runner watch -d
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const ProviderScope(child: MyApp()));
+  await EasyLocalization.ensureInitialized();
+  runApp(
+    ProviderScope(
+      child: EasyLocalization(
+        supportedLocales: const [ENGLISH_LOCALE, POLISH_LOCALE],
+        path: ASSETS_PATH_LOCALISATION,
+        child: const MyApp(),
+      ),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,10 +38,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       routerConfig: routeByName,
       restorationScopeId: 'app',
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: StringsManager.appName.tr(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
