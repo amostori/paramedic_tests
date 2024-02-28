@@ -4,4 +4,5 @@ class StringsManager {
   static const String weight = 'weight';
   static const String breathingRate = 'breathing_rate';
   static const String pulseRate = 'pulse_rate';
+  static const String ventRate = 'vent_rate';
 }

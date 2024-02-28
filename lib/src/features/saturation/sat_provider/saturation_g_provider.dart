@@ -1,9 +1,11 @@
 import 'dart:async';
-
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+// dart run build_runner watch -d
 import 'package:paramedic_tests/src/features/weight/providers/weight_provider.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+part 'saturation_g_provider.g.dart';
 
-class Saturation extends AutoDisposeFamilyAsyncNotifier<String, int> {
+@riverpod
+class SaturationG extends _$SaturationG {
   late int _time;
   @override
   FutureOr<String> build(int arg) {
@@ -37,7 +39,3 @@ final List<String> timeList = [
 ];
 final timeProvider =
     Provider.family<String, int>((ref, random) => timeList[random]);
-final saturationProvider =
-    AsyncNotifierProvider.autoDispose.family<Saturation, String, int>(() {
-  return Saturation();
-});

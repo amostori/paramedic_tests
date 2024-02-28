@@ -12,6 +12,9 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(StringsManager.appName.tr()),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(32.0),
@@ -32,11 +35,11 @@ class Home extends StatelessWidget {
               ),
               HomeListButton(
                 onTap: () => context.goNamed(AppRoute.pulse.name),
-                title: 'Częstość akcji serca',
+                title: StringsManager.pulseRate.tr(),
               ),
               HomeListButton(
                 onTap: () => context.goNamed(AppRoute.vent.name),
-                title: 'Częstość wentylacji',
+                title: StringsManager.ventRate.tr(),
               ),
               HomeListButton(
                 onTap: () => context.goNamed(AppRoute.mask.name),
@@ -49,6 +52,10 @@ class Home extends StatelessWidget {
               HomeListButton(
                 onTap: () => context.goNamed(AppRoute.saturation.name),
                 title: 'Saturacja noworodka',
+              ),
+              HomeListButton(
+                onTap: () => context.goNamed(AppRoute.drawing.name),
+                title: 'Leki u dzieci',
               ),
             ],
           ),
