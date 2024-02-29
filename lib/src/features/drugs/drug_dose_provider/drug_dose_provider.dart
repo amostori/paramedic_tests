@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../weight/providers/weight_provider.dart';
+import '../../weight/providers/archive/weight_provider.dart';
 
 class DrugDose extends StateNotifier<AsyncValue<String>> {
   DrugDose(this.delay, {required this.drugId})

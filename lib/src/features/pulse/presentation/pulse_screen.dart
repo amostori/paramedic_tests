@@ -1,13 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:paramedic_tests/src/features/pulse/pulse_provider/pulse_provider.dart';
 
-import '../../../utils/age_helper.dart';
-import '../../../utils/constants.dart';
-import '../../../widgets/my_floating_button.dart';
-import '../../../widgets/body.dart';
-import '../pulse_provider/pulse_provider.dart';
+import '../../../widgets/floating_button.dart';
+import '../../../widgets/my_body.dart';
 
 class PulseScreen extends ConsumerStatefulWidget {
   const PulseScreen({super.key});
@@ -17,26 +13,18 @@ class PulseScreen extends ConsumerStatefulWidget {
 }
 
 class _PulseScreenState extends ConsumerState<PulseScreen> {
-  String age = 'Wiek dziecka';
-  int random = 0;
   @override
   Widget build(BuildContext context) {
-    final pulse = ref.watch(pulseProvider(random));
-    final isLoading = pulse is AsyncLoading;
+    final pulse = ref.watch(pulseProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Akcja serca'),
+        title: const Text('Częstość tętna'),
       ),
-      floatingActionButton: MyFloatingActionButton(
-        onTap: () {
-          setState(() {
-            random = Random().nextInt(RandomLimits.limit);
-            age = AgeHelper.convertToAge(random);
-          });
-          ref.read(pulseProvider(random).notifier).showPulse();
-        },
+      floatingActionButton: const FloatingButton(),
+      body: MyBody(
+        question: pulse.age,
+        answer: pulse.pulseRate,
       ),
-      body: Body(isLoading: isLoading, question: age, answer: '${pulse.value}'),
     );
   }
 }

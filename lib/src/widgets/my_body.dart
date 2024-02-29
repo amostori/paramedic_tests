@@ -4,14 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../features/weight/providers/archive/weight_provider.dart';
 import '../presentation/style_manager.dart';
 
-class Body extends ConsumerWidget {
-  const Body({
+class MyBody extends ConsumerWidget {
+  const MyBody({
     super.key,
-    required this.isLoading,
     required this.question,
     required this.answer,
   });
-  final bool isLoading;
   final String question;
   final String answer;
 
@@ -43,32 +41,25 @@ class Body extends ConsumerWidget {
                   style: StyleManager.mediumText,
                 ),
               ),
-              isLoading
-                  ? const SizedBox(
-                      height: 100,
-                      child: Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                    )
-                  : SizedBox(
-                      height: 100,
-                      width: double.infinity,
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: answer == 'nuller'
-                            ? Center(
-                                child: Container(
-                                    width: 50,
-                                    height: 50,
-                                    child: CircularProgressIndicator()),
-                              )
-                            : Text(
-                                textAlign: TextAlign.center,
-                                answer,
-                                style: StyleManager.smallText,
-                              ),
-                      ),
-                    ),
+              SizedBox(
+                height: 100,
+                width: double.infinity,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: answer == '-1'
+                      ? const Center(
+                          child: SizedBox(
+                              width: 50,
+                              height: 50,
+                              child: CircularProgressIndicator()),
+                        )
+                      : Text(
+                          textAlign: TextAlign.center,
+                          answer,
+                          style: StyleManager.smallText,
+                        ),
+                ),
+              ),
             ],
           ),
         ),

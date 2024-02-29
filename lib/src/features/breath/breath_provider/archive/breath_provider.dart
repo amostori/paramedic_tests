@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../weight/providers/weight_provider.dart';
+import '../../../weight/providers/archive/weight_provider.dart';
 
 class Breath extends StateNotifier<AsyncValue<String>> {
   Breath(this.delay, {required this.age})

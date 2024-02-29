@@ -1,13 +1,13 @@
 import 'package:go_router/go_router.dart';
+import 'package:paramedic_tests/src/features/breath/presentation/breathing_screen.dart';
 import 'package:paramedic_tests/src/features/drugs/presentation/drugScreen.dart';
 import 'package:paramedic_tests/src/features/leki_u_dzieci/presentation/drawing_screen.dart';
 import 'package:paramedic_tests/src/features/saturation/presentation/saturation_screen.dart';
+import 'package:paramedic_tests/src/features/six_times/presentation/six_screen.dart';
 
-import '../features/breath/presentation/breath_screen.dart';
 import '../features/home/presentation/home.dart';
 import '../features/mask/presentation/mask_screen.dart';
 import '../features/pulse/presentation/pulse_screen.dart';
-import '../features/six_times/presentation/six_times.dart';
 import '../features/ventilation/presentation/vent_screen.dart';
 import '../features/weight/presentation/weight_screen.dart';
 import '../presentation/error_page.dart';
@@ -38,7 +38,7 @@ final routeByName = GoRouter(
         GoRoute(
           path: 'six',
           name: AppRoute.six.name,
-          builder: (context, state) => const SixTimes(),
+          builder: (context, state) => const SixScreen(),
         ),
         GoRoute(
           path: 'weight',
@@ -48,7 +48,7 @@ final routeByName = GoRouter(
         GoRoute(
           path: 'breath',
           name: AppRoute.breath.name,
-          builder: (context, state) => const BreathScreen(),
+          builder: (context, state) => const BreathingScreen(),
         ),
         GoRoute(
           path: 'pulse',

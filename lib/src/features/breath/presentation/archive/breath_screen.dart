@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../utils/age_helper.dart';
-import '../../../utils/constants.dart';
-import '../../../widgets/my_floating_button.dart';
-import '../../../widgets/body.dart';
-import '../breath_provider/breath_provider.dart';
+import '../../../../utils/age_helper.dart';
+import '../../../../utils/constants.dart';
+import '../../../../widgets/my_floating_button.dart';
+import '../../../../widgets/body.dart';
+import '../../breath_provider/archive/breath_provider.dart';
 
 class BreathScreen extends ConsumerStatefulWidget {
   const BreathScreen({super.key});

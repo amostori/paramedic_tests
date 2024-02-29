@@ -1,13 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:paramedic_tests/src/features/weight/providers/weight_provider.dart';
 
-import '../../../utils/age_helper.dart';
-import '../../../utils/constants.dart';
-import '../../../widgets/my_floating_button.dart';
-import '../../../widgets/body.dart';
-import '../providers/weight_provider.dart';
+import '../../../widgets/floating_button.dart';
+import '../../../widgets/my_body.dart';
 
 class WeightScreen extends ConsumerStatefulWidget {
   const WeightScreen({super.key});
@@ -17,29 +13,17 @@ class WeightScreen extends ConsumerStatefulWidget {
 }
 
 class _WeightScreenState extends ConsumerState<WeightScreen> {
-  String age = 'Wiek dziecka';
-  int random = 0;
-
   @override
   Widget build(BuildContext context) {
-    // AsyncLoading pojawi się jeśli random będzie w setState()
-    final weight = ref.watch(weightProvider(random));
-    final isLoading = weight is AsyncLoading;
+    final weight = ref.watch(weightProvider);
     return Scaffold(
-      appBar: AppBar(title: const Text('Waga pacjenta')),
-      floatingActionButton: MyFloatingActionButton(
-        onTap: () {
-          setState(() {
-            random = Random().nextInt(RandomLimits.limit);
-            age = AgeHelper.convertToAge(random);
-          });
-          ref.read(weightProvider(random).notifier).showWeight();
-        },
+      appBar: AppBar(
+        title: const Text('Waga wg wieku'),
       ),
-      body: Body(
-        question: age,
-        answer: 'Waga: ${weight.value} kg',
-        isLoading: isLoading,
+      floatingActionButton: const FloatingButton(),
+      body: MyBody(
+        question: weight.age,
+        answer: weight.weight.toString(),
       ),
     );
   }

@@ -1,33 +1,22 @@
-import 'dart:async';
-import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:paramedic_tests/src/features/weight/providers/archive/weight_provider.dart';
-import 'package:paramedic_tests/src/features/weight/weight_model/weight_model.dart';
-import 'package:paramedic_tests/src/utils/age_helper.dart';
 
-class Weight extends StateNotifier<WeightModel> {
-  Weight({
-    required this.delay,
-  }) : super(const WeightModel(age: 'Wiek dziecka', weight: 0)) {
-    _timer = Timer.periodic(Duration(seconds: delay * 2), (timer) {
-      showWeight();
-    });
-  }
+class Weight extends StateNotifier<AsyncValue<int>> {
+  Weight(
+    this.delay, {
+    required this.age,
+  }) : super(const AsyncData(0));
+  final int age;
   final int delay;
-  late Timer _timer;
 
   Future<void> showWeight() async {
-    final random = Random().nextInt(25);
+    state = const AsyncLoading();
+    state = await AsyncValue.guard(() async {
+      await Future.delayed(
+        Duration(seconds: delay),
+      );
 
-    state = state.copyWith(age: AgeHelper.convertToAge(random), weight: -1);
-    await Future.delayed(Duration(seconds: delay));
-    state = state.copyWith(weight: getWeight(random));
-  }
-
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
+      return getWeight(age);
+    });
   }
 
   int getWeight(int age) {
@@ -89,7 +78,11 @@ class Weight extends StateNotifier<WeightModel> {
 }
 
 final weightProvider =
-    StateNotifierProvider.autoDispose<Weight, WeightModel>((ref) {
+    StateNotifierProvider.family<Weight, AsyncValue<int>, int>((ref, age) {
   final delay = ref.watch(delayProvider);
-  return Weight(delay: delay);
+  return Weight(delay, age: age);
+});
+
+final delayProvider = StateProvider<int>((ref) {
+  return 2;
 });

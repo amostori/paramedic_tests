@@ -1,23 +1,33 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:paramedic_tests/src/features/pulse/pulse_model/pulse_model.dart';
+import 'package:paramedic_tests/src/features/weight/providers/archive/weight_provider.dart';
+import 'package:paramedic_tests/src/utils/age_helper.dart';
 
-import '../../weight/providers/weight_provider.dart';
-
-class Pulse extends StateNotifier<AsyncValue<String>> {
-  Pulse(this.delay, {required this.age})
-      : super(const AsyncData('Częstość '
-            'akcji serca'));
-  final int age;
+class Pulse extends StateNotifier<PulseModel> {
   final int delay;
+  late final Timer _timer;
 
-  Future<void> showPulse() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(() async {
-      await Future.delayed(Duration(seconds: delay));
-      return setHeartRate(age);
+  Pulse({
+    required this.delay,
+  }) : super(const PulseModel(
+            age: 'Wiek dziecka', pulseRate: 'Częstość akcji serca')) {
+    _timer = Timer.periodic(Duration(seconds: delay * 2), (timer) {
+      showPulse();
     });
   }
 
-  String setHeartRate(int age) {
+  Future<void> showPulse() async {
+    final random = Random().nextInt(25);
+    state =
+        state.copyWith(age: AgeHelper.convertToAge(random), pulseRate: '-1');
+    await Future.delayed(Duration(seconds: delay));
+    state = state.copyWith(pulseRate: setPulseRate(random));
+  }
+
+  String setPulseRate(int age) {
     if (age == 0) {
       return 'Tętno 100 - 180/min';
     } else if (age >= 1 && age <= 6) {
@@ -35,10 +45,16 @@ class Pulse extends StateNotifier<AsyncValue<String>> {
       return 'Tętno 110 - 170/min';
     }
   }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 }
 
 final pulseProvider =
-    StateNotifierProvider.family<Pulse, AsyncValue<String>, int>((ref, age) {
+    StateNotifierProvider.autoDispose<Pulse, PulseModel>((ref) {
   final delay = ref.watch(delayProvider);
-  return Pulse(delay, age: age);
+  return Pulse(delay: delay);
 });

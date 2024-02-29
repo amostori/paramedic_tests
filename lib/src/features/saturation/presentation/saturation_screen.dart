@@ -1,12 +1,9 @@
-import 'dart:async';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:paramedic_tests/src/features/saturation/sat_provider/saturation_provider.dart';
+import 'package:paramedic_tests/src/widgets/my_body.dart';
 
-import '../../../widgets/body.dart';
-import '../../../widgets/my_floating_button.dart';
+import '../../../widgets/floating_button.dart';
+import '../sat_provider/sat_provider.dart';
 
 class SaturationScreen extends ConsumerStatefulWidget {
   const SaturationScreen({super.key});
@@ -16,7 +13,6 @@ class SaturationScreen extends ConsumerStatefulWidget {
 }
 
 class _SaturationScreenState extends ConsumerState<SaturationScreen> {
-  // String time = 'Czas';
   int random = 0;
 
   @override
@@ -25,21 +21,12 @@ class _SaturationScreenState extends ConsumerState<SaturationScreen> {
     final isLoading = saturation is AsyncLoading;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Saturacja noworodka'),
+        title: const Text('Saturacja nwdka: '),
       ),
-      floatingActionButton: MyFloatingActionButton(
-        onTap: () {
-          setState(() {
-            random = Random().nextInt(5);
-            // time = timeList[random];
-          });
-          ref.read(saturationStateProvider.notifier).showSaturation(random);
-        },
-      ),
-      body: Body(
-          isLoading: isLoading,
-          question: '${saturation.value?.saturationDelay}',
-          answer: '${saturation.value?.saturationValue}'),
+      floatingActionButton: const FloatingButton(),
+      body: MyBody(
+          question: saturation.saturationDelay,
+          answer: saturation.saturationValue),
     );
   }
 }
