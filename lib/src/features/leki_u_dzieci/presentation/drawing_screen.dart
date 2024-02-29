@@ -17,67 +17,73 @@ class DrawingScreen extends ConsumerStatefulWidget {
 
 class _DrawingScreenState extends ConsumerState<DrawingScreen> {
   final offsets = <Offset?>[];
+  final ThemeData specialThemeData = ThemeData(
+    brightness: Brightness.light,
+  );
   @override
   Widget build(BuildContext context) {
     final man = ref.watch(manProvider);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(man.patient),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showPickerNumber(context, ref);
-        },
-        child: const Icon(Icons.add),
-      ),
-      body: GestureDetector(
-        onPanDown: (details) {
-          setState(() {
-            offsets.add(details.localPosition);
-          });
-        },
-        onPanUpdate: (details) {
-          setState(() {
-            offsets.add(details.localPosition);
-          });
-        },
-        onPanEnd: (details) {
-          setState(() {
-            offsets.add(null);
-          });
-        },
-        child: Center(
-          child: CustomPaint(
-            painter: MyPainter(offsets: offsets),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      const OneRow(
-                        title: 'AVPU:',
-                        descript: '',
-                      ),
-                      OneRow(
-                        title: 'Częstość oddechu: ',
-                        descript: man.title,
-                      ),
-                      OneRow(
-                        title: 'Akcja serca: ',
-                        descript: man.descript,
-                      ),
-                      OneRow(
-                        title: 'Maska: ',
-                        descript: man.title,
-                      ),
-                      OneRow(
-                        title: 'Rurka: ',
-                        descript: man.descript,
-                      ),
-                    ],
+    return Theme(
+      data: specialThemeData,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(man.patient),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showPickerNumber(context, ref);
+          },
+          child: const Icon(Icons.add),
+        ),
+        body: GestureDetector(
+          onPanDown: (details) {
+            setState(() {
+              offsets.add(details.localPosition);
+            });
+          },
+          onPanUpdate: (details) {
+            setState(() {
+              offsets.add(details.localPosition);
+            });
+          },
+          onPanEnd: (details) {
+            setState(() {
+              offsets.add(null);
+            });
+          },
+          child: Center(
+            child: CustomPaint(
+              painter: MyPainter(offsets: offsets),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const OneRow(
+                          title: 'AVPU:',
+                          descript: '',
+                        ),
+                        OneRow(
+                          title: 'Częstość oddechu: ',
+                          descript: man.title,
+                        ),
+                        OneRow(
+                          title: 'Akcja serca: ',
+                          descript: man.descript,
+                        ),
+                        OneRow(
+                          title: 'Maska: ',
+                          descript: man.title,
+                        ),
+                        OneRow(
+                          title: 'Rurka: ',
+                          descript: man.descript,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -166,6 +172,8 @@ class _DrawingScreenState extends ConsumerState<DrawingScreen> {
         adapter: PickerDataAdapter<String>(
             pickerData: const JsonDecoder().convert(pickerData), isArray: true),
         hideHeader: true,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        textStyle: const TextStyle(color: Colors.white),
         title: const Text("Wybierz wiek i/lub wagę pacjenta"),
         cancelText: 'Anuluj',
         confirmText: 'Zatwierdź',

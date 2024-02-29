@@ -54,12 +54,19 @@ class Body extends ConsumerWidget {
                       height: 100,
                       width: double.infinity,
                       child: FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text(
-                          textAlign: TextAlign.center,
-                          answer,
-                          style: StyleManager.smallText,
-                        ),
+                        fit: BoxFit.scaleDown,
+                        child: answer == 'nuller'
+                            ? Center(
+                                child: Container(
+                                    width: 50,
+                                    height: 50,
+                                    child: CircularProgressIndicator()),
+                              )
+                            : Text(
+                                textAlign: TextAlign.center,
+                                answer,
+                                style: StyleManager.smallText,
+                              ),
                       ),
                     ),
             ],

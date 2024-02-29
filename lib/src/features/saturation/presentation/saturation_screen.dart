@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -15,18 +16,12 @@ class SaturationScreen extends ConsumerStatefulWidget {
 }
 
 class _SaturationScreenState extends ConsumerState<SaturationScreen> {
-  String time = 'Czas';
+  // String time = 'Czas';
   int random = 0;
-  final List<String> timeList = [
-    'po 2 min',
-    'po 3 min',
-    'po 4 min',
-    'po 5 min',
-    'po 10 min',
-  ];
+
   @override
   Widget build(BuildContext context) {
-    final saturation = ref.watch(saturationStateProvider(random));
+    final saturation = ref.watch(saturationStateProvider);
     final isLoading = saturation is AsyncLoading;
     return Scaffold(
       appBar: AppBar(
@@ -36,34 +31,15 @@ class _SaturationScreenState extends ConsumerState<SaturationScreen> {
         onTap: () {
           setState(() {
             random = Random().nextInt(5);
-            time = timeList[random];
+            // time = timeList[random];
           });
-          ref.read(saturationStateProvider(random).notifier).showSaturation();
+          ref.read(saturationStateProvider.notifier).showSaturation(random);
         },
       ),
       body: Body(
-          isLoading: isLoading, question: time, answer: '${saturation.value}'),
+          isLoading: isLoading,
+          question: '${saturation.value?.saturationDelay}',
+          answer: '${saturation.value?.saturationValue}'),
     );
   }
-  // Widget build(BuildContext context) {
-  //   final saturation = ref.watch(saturationGProvider(random));
-  //   final isLoading = saturation is AsyncLoading;
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       title: const Text('Saturacja noworodka'),
-  //     ),
-  //     floatingActionButton: MyFloatingActionButton(
-  //       onTap: () {
-  //         setState(() {
-  //           random = Random().nextInt(2);
-  //           time = timeList[random];
-  //           // time = ref.read(timeProvider(random));
-  //         });
-  //         ref.read(saturationGProvider(random).notifier).showSaturation();
-  //       },
-  //     ),
-  //     body: Body(
-  //         isLoading: isLoading, question: time, answer: '${saturation.value}'),
-  //   );
-  // }
 }
