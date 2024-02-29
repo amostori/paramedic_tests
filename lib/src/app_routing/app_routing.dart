@@ -1,13 +1,13 @@
 import 'package:go_router/go_router.dart';
 import 'package:paramedic_tests/src/features/breath/presentation/breathing_screen.dart';
-import 'package:paramedic_tests/src/features/drugs/presentation/drugScreen.dart';
 import 'package:paramedic_tests/src/features/leki_u_dzieci/presentation/drawing_screen.dart';
 import 'package:paramedic_tests/src/features/saturation/presentation/saturation_screen.dart';
 import 'package:paramedic_tests/src/features/six_times/presentation/six_screen.dart';
 import 'package:paramedic_tests/src/features/ventilation/presentation/ventilation_screen.dart';
 
+import '../features/drugs/presentation/drug_screen.dart';
 import '../features/home/presentation/home.dart';
-import '../features/mask/presentation/archive/mask_screen.dart';
+import '../features/mask/presentation/mask_screen.dart';
 import '../features/pulse/presentation/pulse_screen.dart';
 import '../features/ventilation/presentation/archive/vent_screen.dart';
 import '../features/weight/presentation/weight_screen.dart';

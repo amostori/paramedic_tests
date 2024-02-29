@@ -3,9 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../widgets/body.dart';
-import '../../../widgets/my_floating_button.dart';
-import '../drug_dose_provider/drug_dose_provider.dart';
+import '../../../../widgets/body.dart';
+import '../../../../widgets/my_floating_button.dart';
+import '../../drug_dose_provider/archive/drug_dose_provider.dart';
 
 class DrugScreen extends ConsumerStatefulWidget {
   const DrugScreen({super.key});
