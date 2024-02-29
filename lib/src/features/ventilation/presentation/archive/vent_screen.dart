@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../utils/age_helper.dart';
-import '../../../utils/constants.dart';
-import '../../../widgets/my_floating_button.dart';
-import '../../../widgets/body.dart';
-import '../vent_provider/vent_provider.dart';
+import '../../../../utils/age_helper.dart';
+import '../../../../utils/constants.dart';
+import '../../../../widgets/my_floating_button.dart';
+import '../../../../widgets/body.dart';
+import '../../vent_provider/archive/vent_provider.dart';
 
 class VentScreen extends ConsumerStatefulWidget {
   const VentScreen({super.key});

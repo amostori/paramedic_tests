@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../weight/providers/archive/weight_provider.dart';
+import '../../../weight/providers/archive/weight_provider.dart';
 
 class MaskProvider extends StateNotifier<AsyncValue<String>> {
   MaskProvider(this.delay, {required this.age})

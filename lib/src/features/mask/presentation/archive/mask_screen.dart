@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../utils/age_helper.dart';
-import '../../../utils/constants.dart';
-import '../../../widgets/my_floating_button.dart';
-import '../../../widgets/body.dart';
-import '../provider/maskProvider.dart';
+import '../../../../utils/age_helper.dart';
+import '../../../../utils/constants.dart';
+import '../../../../widgets/my_floating_button.dart';
+import '../../../../widgets/body.dart';
+import '../../provider/archive/maskProvider.dart';
 
 class MaskScreen extends ConsumerStatefulWidget {
   const MaskScreen({super.key});
