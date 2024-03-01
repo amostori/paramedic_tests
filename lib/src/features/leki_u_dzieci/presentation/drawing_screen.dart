@@ -1,9 +1,12 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_picker/picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:paramedic_tests/src/features/leki_u_dzieci/presentation/widgets/one_row.dart';
+import 'package:paramedic_tests/src/features/leki_u_dzieci/presentation/widgets/one_row_paint.dart';
 import 'package:paramedic_tests/src/features/leki_u_dzieci/providers/man_provider.dart';
 
 import '../utils/my_painter.dart';
@@ -26,199 +29,223 @@ class _DrawingScreenState extends ConsumerState<DrawingScreen> {
     return Theme(
       data: specialThemeData,
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('${man.age}, waga: ${man.weight}'),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showPickerNumber(context, ref);
-          },
-          child: const Icon(Icons.add),
-        ),
-        body: GestureDetector(
-          onPanDown: (details) {
-            setState(() {
-              offsets.add(details.localPosition);
-            });
-          },
-          onPanUpdate: (details) {
-            setState(() {
-              offsets.add(details.localPosition);
-            });
-          },
-          onPanEnd: (details) {
-            setState(() {
-              offsets.add(null);
-            });
-          },
-          child: Center(
-            child: CustomPaint(
-              painter: MyPainter(offsets: offsets),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        const OneRow(
-                          title: 'AVPU:',
-                          descript: '',
+          appBar: AppBar(
+            title: Text('${man.age}, waga: ${man.weight}'),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              showPickerNumber(context, ref);
+            },
+            child: const Icon(Icons.add),
+          ),
+          body: Column(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Container(
+                  color: Colors.black12,
+                  width: double.infinity,
+                  child: GestureDetector(
+                    onPanDown: (details) {
+                      setState(() {
+                        offsets.add(details.localPosition);
+                      });
+                    },
+                    onPanUpdate: (details) {
+                      setState(() {
+                        offsets.add(details.localPosition);
+                      });
+                    },
+                    onPanEnd: (details) {
+                      setState(() {
+                        offsets.add(null);
+                      });
+                    },
+                    child: Center(
+                      child: CustomPaint(
+                        painter: MyPainter(offsets: offsets),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            height: MediaQuery.of(context).size.height,
+                            width: MediaQuery.of(context).size.width,
+                            child: Column(
+                              children: [
+                                const OneRowPaint(
+                                  title: 'AVPU:',
+                                  descript: '',
+                                ),
+                                OneRowPaint(
+                                  title: 'Częstość oddechu: ',
+                                  descript: man.breathingRate,
+                                ),
+                                const OneRowPaint(
+                                  title: 'Saturacja: ',
+                                  descript: '',
+                                ),
+                                OneRowPaint(
+                                  title: 'Akcja serca: ',
+                                  descript: man.pulseRate,
+                                ),
+                                OneRowPaint(
+                                  title: 'Minimalne ciśnienie: ',
+                                  descript: man.bloodPressure,
+                                ),
+                                OneRowPaint(
+                                  title: 'Glukoza: ',
+                                  descript: man.glucoseLevel,
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        OneRow(
-                          title: 'Częstość oddechu: ',
-                          descript: man.breathingRate,
-                        ),
-                        const OneRow(
-                          title: 'Saturacja: ',
-                          descript: '',
-                        ),
-                        OneRow(
-                          title: 'Akcja serca: ',
-                          descript: man.pulseRate,
-                        ),
-                        OneRow(
-                          title: 'Minimalne ciśnienie: ',
-                          descript: man.bloodPressure,
-                        ),
-                        OneRow(
-                          title: 'Glukoza: ',
-                          descript: man.glucoseLevel,
-                        ),
-                        OneRow(
-                          title: 'Maska twarzowa: ',
-                          descript: man.ambuMask,
-                        ),
-                        OneRow(
-                          title: 'Rurka intubacyjna: ',
-                          descript: man.tube,
-                        ),
-                        OneRow(
-                          title: 'Łyżka laryngoskopu: ',
-                          descript: man.laryngoscope,
-                        ),
-                        OneRow(
-                          title: 'Maska krtaniowa: ',
-                          descript: man.laryngMask,
-                        ),
-                        OneRow(
-                          title: 'Defibrylacja: ',
-                          descript: man.defibrillation,
-                        ),
-                        OneRow(
-                          title: 'Kardiowersja: ',
-                          descript: man.cardioversion,
-                        ),
-                        OneRow(
-                          title: 'Adenozyna: ',
-                          descript: man.adenosine,
-                        ),
-                        OneRow(
-                          title: 'Adrenalina RKO: ',
-                          descript: man.adrenalin,
-                        ),
-                        OneRow(
-                          title: 'Adrenalina anafilaksja: ',
-                          descript: man.adrenalinAnafilaksja,
-                        ),
-                        OneRow(
-                          title: 'Adrenalina wlew: ',
-                          descript: man.adrenalinWlew,
-                        ),
-                        OneRow(
-                          title: 'Amiodaron: ',
-                          descript: man.amiodaron,
-                        ),
-                        OneRow(
-                          title: 'Atropina: ',
-                          descript: man.atropina,
-                        ),
-                        OneRow(
-                          title: 'Clonazepam: ',
-                          descript: man.clonazepam,
-                        ),
-                        OneRow(
-                          title: 'Deksametazon: ',
-                          descript: man.deksametazon,
-                        ),
-                        OneRow(
-                          title: 'Diazepam: ',
-                          descript: man.diazepam,
-                        ),
-                        OneRow(
-                          title: 'Diazepam p.r.: ',
-                          descript: man.diazepamPr,
-                        ),
-                        OneRow(
-                          title: 'Fentanyl: ',
-                          descript: man.fentanyl,
-                        ),
-                        OneRow(
-                          title: 'Furosemid: ',
-                          descript: man.furosemid,
-                        ),
-                        OneRow(
-                          title: 'Glukagon: ',
-                          descript: man.glukagon,
-                        ),
-                        OneRow(
-                          title: 'Glukoza 20%: ',
-                          descript: man.glucose20,
-                        ),
-                        OneRow(
-                          title: 'Hydrokortyzon: ',
-                          descript: man.hydrokortyzon,
-                        ),
-                        OneRow(
-                          title: 'Ibuprofen: ',
-                          descript: man.ibuprofen,
-                        ),
-                        OneRow(
-                          title: 'Magnez 20%: ',
-                          descript: man.magnez,
-                        ),
-                        OneRow(
-                          title: 'Midazolam: ',
-                          descript: man.midazolam,
-                        ),
-                        OneRow(
-                          title: 'Morfina: ',
-                          descript: man.morfina,
-                        ),
-                        OneRow(
-                          title: 'Natrium Bicarbonicum: ',
-                          descript: man.natriumBicarbonicum,
-                        ),
-                        OneRow(
-                          title: 'Nalokson: ',
-                          descript: man.nalokson,
-                        ),
-                        OneRow(
-                          title: 'Paracetamol p.r.: ',
-                          descript: man.paracetamolCzopek,
-                        ),
-                        OneRow(
-                          title: 'Paracetamol i.v.: ',
-                          descript: man.paracetamolWlew,
-                        ),
-                        OneRow(
-                          title: 'Płyn wieloelektrolitowy: ',
-                          descript: man.plyn,
-                        ),
-                        OneRow(
-                          title: 'Salbutamol: ',
-                          descript: man.salbutamol,
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ),
-        ),
-      ),
+              Expanded(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          OneRow(
+                            title: 'Maska twarzowa: ',
+                            descript: man.ambuMask,
+                          ),
+                          OneRow(
+                            title: 'Rurka intubacyjna: ',
+                            descript: man.tube,
+                          ),
+                          OneRow(
+                            title: 'Łyżka laryngoskopu: ',
+                            descript: man.laryngoscope,
+                          ),
+                          OneRow(
+                            title: 'Maska krtaniowa: ',
+                            descript: man.laryngMask,
+                          ),
+                          OneRow(
+                            title: 'Defibrylacja: ',
+                            descript: man.defibrillation,
+                          ),
+                          OneRow(
+                            title: 'Kardiowersja: ',
+                            descript: man.cardioversion,
+                          ),
+                          OneRow(
+                            title: 'Adenozyna: ',
+                            descript: man.adenosine,
+                          ),
+                          OneRow(
+                            title: 'Adrenalina RKO: ',
+                            descript: man.adrenalin,
+                          ),
+                          OneRow(
+                            title: 'Adrenalina anafilaksja: ',
+                            descript: man.adrenalinAnafilaksja,
+                          ),
+                          OneRow(
+                            title: 'Adrenalina wlew: ',
+                            descript: man.adrenalinWlew,
+                          ),
+                          OneRow(
+                            title: 'Amiodaron: ',
+                            descript: man.amiodaron,
+                          ),
+                          OneRow(
+                            title: 'Atropina: ',
+                            descript: man.atropina,
+                          ),
+                          OneRow(
+                            title: 'Clonazepam: ',
+                            descript: man.clonazepam,
+                          ),
+                          OneRow(
+                            title: 'Deksametazon: ',
+                            descript: man.deksametazon,
+                          ),
+                          OneRow(
+                            title: 'Diazepam: ',
+                            descript: man.diazepam,
+                          ),
+                          OneRow(
+                            title: 'Diazepam p.r.: ',
+                            descript: man.diazepamPr,
+                          ),
+                          OneRow(
+                            title: 'Fentanyl: ',
+                            descript: man.fentanyl,
+                          ),
+                          OneRow(
+                            title: 'Furosemid: ',
+                            descript: man.furosemid,
+                          ),
+                          OneRow(
+                            title: 'Glukagon: ',
+                            descript: man.glukagon,
+                          ),
+                          OneRow(
+                            title: 'Glukoza 20%: ',
+                            descript: man.glucose20,
+                          ),
+                          OneRow(
+                            title: 'Hydrokortyzon: ',
+                            descript: man.hydrokortyzon,
+                          ),
+                          OneRow(
+                            title: 'Ibuprofen: ',
+                            descript: man.ibuprofen,
+                          ),
+                          OneRow(
+                            title: 'Magnez 20%: ',
+                            descript: man.magnez,
+                          ),
+                          OneRow(
+                            title: 'Midazolam: ',
+                            descript: man.midazolam,
+                          ),
+                          OneRow(
+                            title: 'Morfina: ',
+                            descript: man.morfina,
+                          ),
+                          OneRow(
+                            title: 'Natrium Bicarbonicum: ',
+                            descript: man.natriumBicarbonicum,
+                          ),
+                          OneRow(
+                            title: 'Nalokson: ',
+                            descript: man.nalokson,
+                          ),
+                          OneRow(
+                            title: 'Paracetamol p.r.: ',
+                            descript: man.paracetamolCzopek,
+                          ),
+                          OneRow(
+                            title: 'Paracetamol i.v.: ',
+                            descript: man.paracetamolWlew,
+                          ),
+                          OneRow(
+                            title: 'Płyn wieloelektrolitowy: ',
+                            descript: man.plyn,
+                          ),
+                          OneRow(
+                            title: 'Salbutamol: ',
+                            descript: man.salbutamol,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          )),
     );
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class OneRow extends StatelessWidget {
-  const OneRow({super.key, required this.title, required this.descript});
+class OneRowPaint extends StatelessWidget {
+  const OneRowPaint({super.key, required this.title, required this.descript});
   final String title;
   final String descript;
 
@@ -19,6 +19,7 @@ class OneRow extends StatelessWidget {
                 style: const TextStyle(fontWeight: FontWeight.bold),
               )),
               Expanded(child: Text(descript)),
+              const Expanded(child: Text('')),
             ],
           ),
           Container(
