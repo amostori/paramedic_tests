@@ -9,8 +9,24 @@ class OneRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        children: [Text(title), Text(descript)],
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                  child: Text(
+                title,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              )),
+              Expanded(child: Text(descript))
+            ],
+          ),
+          Container(
+            width: double.infinity,
+            height: 1,
+            color: Colors.black12,
+          )
+        ],
       ),
     );
   }
