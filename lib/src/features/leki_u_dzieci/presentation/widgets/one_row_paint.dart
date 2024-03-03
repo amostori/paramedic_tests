@@ -19,14 +19,12 @@ class OneRowPaint extends StatelessWidget {
                 style: const TextStyle(fontWeight: FontWeight.bold),
               )),
               Expanded(child: Text(descript)),
-              const Expanded(child: Text('')),
+              const Expanded(
+                  child: Text(
+                '',
+              )),
             ],
           ),
-          Container(
-            width: double.infinity,
-            height: 1,
-            color: Colors.black12,
-          )
         ],
       ),
     );

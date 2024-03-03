@@ -78,6 +78,8 @@ class ManModel {
   });
 
   ManModel copyWith({
+    bool? isAgeSet,
+    bool? isWeightSet,
     String? age,
     int? weight,
     String? breathingRate,

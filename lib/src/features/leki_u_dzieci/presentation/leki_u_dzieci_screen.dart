@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_picker/picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:paramedic_tests/src/features/leki_u_dzieci/presentation/widgets/one_row.dart';
@@ -34,7 +36,8 @@ class _LekiUDzieciScreenState extends ConsumerState<LekiUDzieciScreen> {
             onPressed: () {
               showPickerNumber(context, ref);
             },
-            child: const Icon(Icons.add),
+            child: Icon(Icons.scale,
+                color: Theme.of(context).colorScheme.onSecondary),
           ),
           body: Column(
             children: [
@@ -66,17 +69,29 @@ class _LekiUDzieciScreenState extends ConsumerState<LekiUDzieciScreen> {
                           width: MediaQuery.of(context).size.width,
                           child: Column(
                             children: [
-                              const OneRowPaint(
-                                title: 'AVPU:',
-                                descript: '',
-                              ),
                               OneRowPaint(
                                 title: 'Częstość oddechu: ',
                                 descript: man.breathingRate,
                               ),
-                              const OneRowPaint(
-                                title: 'Saturacja: ',
-                                descript: '',
+                              const Row(
+                                children: [
+                                  Expanded(
+                                    flex: 2,
+                                    child: Text(
+                                      'Saturacja:',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Text(
+                                      'Temp:',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ],
                               ),
                               OneRowPaint(
                                 title: 'Akcja serca: ',
@@ -89,10 +104,6 @@ class _LekiUDzieciScreenState extends ConsumerState<LekiUDzieciScreen> {
                               OneRowPaint(
                                 title: 'Glukoza: ',
                                 descript: man.glucoseLevel,
-                              ),
-                              const OneRowPaint(
-                                title: 'Temperatura i skóra: ',
-                                descript: '',
                               ),
                             ],
                           ),
@@ -236,6 +247,14 @@ class _LekiUDzieciScreenState extends ConsumerState<LekiUDzieciScreen> {
                             title: 'Salbutamol: ',
                             descript: man.salbutamol,
                           ),
+                          const OneRowPaint(
+                            title: '',
+                            descript: '',
+                          ),
+                          const OneRowPaint(
+                            title: '',
+                            descript: '',
+                          ),
                         ],
                       ),
                     ),
@@ -325,14 +344,16 @@ class _LekiUDzieciScreenState extends ConsumerState<LekiUDzieciScreen> {
         adapter: PickerDataAdapter<String>(
             pickerData: const JsonDecoder().convert(pickerData), isArray: true),
         hideHeader: true,
+        changeToFirst: false,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         textStyle: const TextStyle(color: Colors.white),
         title: const Text("Wybierz wiek i/lub wagę pacjenta"),
         cancelText: 'Anuluj',
         confirmText: 'Zatwierdź',
         onConfirm: (Picker picker, List value) {
-          final age = picker.getSelectedValues()[0].toString();
           final weight = picker.getSelectedValues()[1].toString();
+          final age = picker.getSelectedValues()[0].toString();
+
           ref.read(manProvider.notifier).showPatient(age, weight);
         }).showDialog(context);
   }
