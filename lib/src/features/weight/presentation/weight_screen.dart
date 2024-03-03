@@ -23,7 +23,7 @@ class _WeightScreenState extends ConsumerState<WeightScreen> {
       floatingActionButton: const FloatingButton(),
       body: MyBody(
         question: weight.age,
-        answer: weight.weight.toString(),
+        answer: weight.weight,
       ),
     );
   }

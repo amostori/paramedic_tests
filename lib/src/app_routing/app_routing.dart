@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:paramedic_tests/src/features/breath/presentation/breathing_screen.dart';
-import 'package:paramedic_tests/src/features/leki_u_dzieci/presentation/drawing_screen.dart';
+import 'package:paramedic_tests/src/features/leki_u_dzieci/presentation/leki_u_dzieci_screen.dart';
 import 'package:paramedic_tests/src/features/saturation/presentation/saturation_screen.dart';
 import 'package:paramedic_tests/src/features/six_times/presentation/six_screen.dart';
 import 'package:paramedic_tests/src/features/ventilation/presentation/ventilation_screen.dart';
@@ -79,7 +79,7 @@ final routeByName = GoRouter(
         GoRoute(
           path: 'drawing',
           name: AppRoute.drawing.name,
-          builder: (context, state) => const DrawingScreen(),
+          builder: (context, state) => const LekiUDzieciScreen(),
         ),
       ],
     ),

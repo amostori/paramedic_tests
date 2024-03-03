@@ -1,6 +1,6 @@
 class WeightModel {
   final String age;
-  final int weight;
+  final String weight;
 
   const WeightModel({
     required this.age,
@@ -9,7 +9,7 @@ class WeightModel {
 
   WeightModel copyWith({
     String? age,
-    int? weight,
+    String? weight,
   }) {
     return WeightModel(
       age: age ?? this.age,

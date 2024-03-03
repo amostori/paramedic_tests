@@ -22,6 +22,10 @@ class Home extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               HomeListButton(
+                onTap: () => context.goNamed(AppRoute.drawing.name),
+                title: 'Leki u dzieci',
+              ),
+              HomeListButton(
                 onTap: () => context.goNamed(AppRoute.six.name),
                 title: StringsManager.sixTimes.tr(),
               ),
@@ -52,10 +56,6 @@ class Home extends StatelessWidget {
               HomeListButton(
                 onTap: () => context.goNamed(AppRoute.saturation.name),
                 title: 'Saturacja noworodka',
-              ),
-              HomeListButton(
-                onTap: () => context.goNamed(AppRoute.drawing.name),
-                title: 'Leki u dzieci',
               ),
             ],
           ),

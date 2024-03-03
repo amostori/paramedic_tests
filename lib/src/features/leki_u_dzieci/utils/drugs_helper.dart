@@ -1,4 +1,425 @@
 class DrugHelper {
+  static String getBreathingRate(String age) {
+    switch (age) {
+      case 'Noworodek':
+        return '30 - 60/min';
+      case '1 m.ż.':
+        return '30 - 50/min';
+      case '2 m.ż.':
+        return '30 - 50/min';
+      case '3 m.ż.':
+        return '30 - 50/min';
+      case '4 m.ż.':
+        return '30 - 50/min';
+      case '5 m.ż.':
+        return '30 - 50/min';
+      case '6 m.ż.':
+        return '30 - 50/min';
+      case '7 m.ż.':
+        return '30 - 50/min';
+      case '8 m.ż.':
+        return '30 - 50/min';
+      case '9 m.ż.':
+        return '30 - 50/min';
+      case '10 m.ż.':
+        return '30 - 50/min';
+      case '11 m.ż.':
+        return '30 - 50/min';
+      case '12 m.ż.':
+        return '30 - 50/min';
+      case '18 m.ż.':
+        return '30 - 50/min';
+      case '2 r.ż.':
+        return '24 - 40/min';
+      case '3 r.ż.':
+        return '24 - 40/min';
+      case '4 r.ż.':
+        return '24 - 40/min';
+      case '5 r.ż.':
+        return '24 - 40/min';
+      case '6 r.ż.':
+        return '20 - 30/min';
+      case '7 r.ż.':
+        return '20 - 30/min';
+      case '8 r.ż.':
+        return '20 - 30/min';
+      case '9 r.ż.':
+        return '20 - 30/min';
+      case '10 r.ż.':
+        return '20 - 30/min';
+      case '11 r.ż.':
+        return '20 - 30/min';
+      case '12 r.ż.':
+        return '20 - 30/min';
+      default:
+        return '-1';
+    }
+  }
+
+  static int getWeight(String age) {
+    switch (age) {
+      case 'Noworodek':
+        return 3;
+      case '1 m.ż.':
+        return 4;
+      case '2 m.ż.':
+        return 5;
+      case '3 m.ż.':
+        return 6;
+      case '4 m.ż.':
+        return 7;
+      case '5 m.ż.':
+        return 7;
+      case '6 m.ż.':
+        return 8;
+      case '7 m.ż.':
+        return 8;
+      case '8 m.ż.':
+        return 9;
+      case '9 m.ż.':
+        return 9;
+      case '10 m.ż.':
+        return 9;
+      case '11 m.ż.':
+        return 10;
+      case '12 m.ż.':
+        return 10;
+      case '18 m.ż.':
+        return 11;
+      case '2 r.ż.':
+        return 12;
+      case '3 r.ż.':
+        return 14;
+      case '4 r.ż.':
+        return 16;
+      case '5 r.ż.':
+        return 18;
+      case '6 r.ż.':
+        return 20;
+      case '7 r.ż.': // 11 miesięcy
+        return 22;
+      case '8 r.ż.': // 11 miesięcy
+        return 25;
+      case '9 r.ż.': // 11 miesięcy
+        return 28;
+      case '10 r.ż.': // 11 miesięcy
+        return 33;
+      case '11 r.ż.': // 11 miesięcy
+        return 36;
+      case '12 r.ż.': // 11 miesięcy
+        return 40;
+      default:
+        return -1;
+    }
+  }
+
+  static String getPulseRate(String age) {
+    switch (age) {
+      case 'Noworodek':
+        return '100 - 180/min';
+      case '1 m.ż.':
+        return '110 - 180/min';
+      case '2 m.ż.':
+        return '110 - 180/min';
+      case '3 m.ż.':
+        return '110 - 180/min';
+      case '4 m.ż.':
+        return '110 - 180/min';
+      case '5 m.ż.':
+        return '110 - 180/min';
+      case '6 m.ż.':
+        return '110 - 180/min';
+      case '7 m.ż.':
+        return '110 - 170/min';
+      case '8 m.ż.':
+        return '110 - 170/min';
+      case '9 m.ż.':
+        return '110 - 170/min';
+      case '10 m.ż.':
+        return '110 - 170/min';
+      case '11 m.ż.':
+        return '110 - 170/min';
+      case '12 m.ż.':
+        return '90 - 150/min';
+      case '18 m.ż.':
+        return '90 - 150/min';
+      case '2 r.ż.':
+        return '90 - 150/min';
+      case '3 r.ż.':
+        return '70 - 140/min';
+      case '4 r.ż.':
+        return '70 - 140/min';
+      case '5 r.ż.':
+        return '70 - 140/min';
+      case '6 r.ż.':
+        return '60 - 130/min';
+      case '7 r.ż.':
+        return '60 - 130/min';
+      case '8 r.ż.':
+        return '60 - 130/min';
+      case '9 r.ż.':
+        return '60 - 130/min';
+      case '10 r.ż.':
+        return '60 - 130/min';
+      case '11 r.ż.':
+        return '60 - 130/min';
+      case '12 r.ż.':
+        return '60 - 130/min';
+      default:
+        return '-1';
+    }
+  }
+
+  static String getPressure(String age) {
+    switch (age) {
+      case 'Noworodek':
+        return '>60 mmHg';
+      case '1 m.ż.':
+        return '>70 mmHg';
+      case '2 m.ż.':
+        return '>70 mmHg';
+      case '3 m.ż.':
+        return '>70 mmHg';
+      case '4 m.ż.':
+        return '>70 mmHg';
+      case '5 m.ż.':
+        return '>70 mmHg';
+      case '6 m.ż.':
+        return '>70 mmHg';
+      case '7 m.ż.':
+        return '>70 mmHg';
+      case '8 m.ż.':
+        return '>70 mmHg';
+      case '9 m.ż.':
+        return '>70 mmHg';
+      case '10 m.ż.':
+        return '>70 mmHg';
+      case '11 m.ż.':
+        return '>70 mmHg';
+      case '12 m.ż.':
+        return '>72 mmHg';
+      case '18 m.ż.':
+        return '>72 mmHg';
+      case '2 r.ż.':
+        return '>74 mmHg';
+      case '3 r.ż.':
+        return '>76 mmHg';
+      case '4 r.ż.':
+        return '>78 mmHg';
+      case '5 r.ż.':
+        return '>80 mmHg';
+      case '6 r.ż.':
+        return '>82 mmHg';
+      case '7 r.ż.':
+        return '>84 mmHg';
+      case '8 r.ż.':
+        return '>86 mmHg';
+      case '9 r.ż.':
+        return '>88 mmHg';
+      case '10 r.ż.':
+        return '>90 mmHg';
+      case '11 r.ż.':
+        return '>92 mmHg';
+      case '12 r.ż.':
+        return '>94 mmHg';
+      default:
+        return '-1';
+    }
+  }
+
+  static String getGlucoseLevel(String age) {
+    if (age == 'Noworodek') {
+      return '>40 mg/dl';
+    } else {
+      return '>60 mg/dl';
+    }
+  }
+
+  static String getAmbu(String age) {
+    switch (age) {
+      case 'Noworodek':
+        return 'nr 1';
+      case '1 m.ż.':
+        return 'nr 1';
+      case '2 m.ż.':
+        return 'nr 1';
+      case '3 m.ż.':
+        return 'nr 1';
+      case '4 m.ż.':
+        return 'nr 1';
+      case '5 m.ż.':
+        return 'nr 1';
+      case '6 m.ż.':
+        return 'nr 1';
+      case '7 m.ż.':
+        return 'nr 1';
+      case '8 m.ż.':
+        return 'nr 1';
+      case '9 m.ż.':
+        return 'nr 1';
+      case '10 m.ż.':
+        return 'nr 1';
+      case '11 m.ż.':
+        return 'nr 1';
+      case '12 m.ż.':
+        return 'nr 2';
+      case '18 m.ż.':
+        return 'nr 3';
+      case '2 r.ż.':
+        return 'nr 4';
+      case '3 r.ż.':
+        return 'nr 4';
+      case '4 r.ż.':
+        return 'nr 4';
+      case '5 r.ż.':
+        return 'nr 4';
+      case '6 r.ż.':
+        return 'nr 4';
+      case '7 r.ż.':
+        return 'nr 4';
+      case '8 r.ż.':
+        return 'nr 5';
+      case '9 r.ż.':
+        return 'nr 5';
+      case '10 r.ż.':
+        return 'nr 5 - 6';
+      case '11 r.ż.':
+        return 'nr 5 - 6';
+      case '12 r.ż.':
+        return 'nr 5 - 6';
+      default:
+        return '-1';
+    }
+  }
+
+  static String getMaskaKrtaniowa(int waga) {
+    if (waga < 5) {
+      return 'nr 1';
+    } else if (waga >= 5 && waga <= 10) {
+      return 'nr 1.5';
+    } else if (waga >= 11 && waga <= 20) {
+      return 'nr 2';
+    } else if (waga >= 21 && waga <= 30) {
+      return 'nr 2.5';
+    } else {
+      return 'nr 3';
+    }
+  }
+
+  static String getTube(String age) {
+    switch (age) {
+      case 'Noworodek':
+        return '3.0 na 9 cm';
+      case '1 m.ż.':
+        return '3.5 na 10 cm';
+      case '2 m.ż.':
+        return '3.5 na 10 cm';
+      case '3 m.ż.':
+        return '3.5 na 10 cm';
+      case '4 m.ż.':
+        return 'nr 1';
+      case '5 m.ż.':
+        return '3.5 na 10 cm';
+      case '6 m.ż.':
+        return '3.5 na 10 cm';
+      case '7 m.ż.':
+        return '4.0 na 11 cm';
+      case '8 m.ż.':
+        return '4.0 na 11 cm';
+      case '9 m.ż.':
+        return '4.0 na 11 cm';
+      case '10 m.ż.':
+        return '4.0 na 11 cm';
+      case '11 m.ż.':
+        return '4.0 na 11 cm';
+      case '12 m.ż.':
+        return '4.0 na 11 cm';
+      case '18 m.ż.':
+        return '4.0 na 11 cm';
+      case '2 r.ż.':
+        return '4.5 na 12 cm';
+      case '3 r.ż.':
+        return '5.0 na 14 cm';
+      case '4 r.ż.':
+        return '5.0 na 14 cm';
+      case '5 r.ż.':
+        return '5.5 na 16 cm';
+      case '6 r.ż.':
+        return '5.5 na 16 cm';
+      case '7 r.ż.':
+        return '6.0 na 18 cm';
+      case '8 r.ż.':
+        return '6.0 na 18 cm';
+      case '9 r.ż.':
+        return '6.0 na 18 cm z mankietem';
+      case '10 r.ż.':
+        return '6.5 na 20 cm z mankietem';
+      case '11 r.ż.':
+        return '6.5 na 20 cm z mankietem';
+      case '12 r.ż.':
+        return '7.0 na 22 cm z mankietem';
+      default:
+        return '-1';
+    }
+  }
+
+  static String getLyzka(String age) {
+    switch (age) {
+      case 'Noworodek':
+        return 'prosta nr 0';
+      case '1 m.ż.':
+        return 'prosta nr 1';
+      case '2 m.ż.':
+        return 'prosta nr 1';
+      case '3 m.ż.':
+        return 'prosta nr 1';
+      case '4 m.ż.':
+        return 'prosta nr 1';
+      case '5 m.ż.':
+        return 'prosta nr 1';
+      case '6 m.ż.':
+        return 'prosta nr 1';
+      case '7 m.ż.':
+        return 'prosta nr 1';
+      case '8 m.ż.':
+        return 'prosta nr 1';
+      case '9 m.ż.':
+        return 'prosta nr 1';
+      case '10 m.ż.':
+        return 'prosta nr 1';
+      case '11 m.ż.':
+        return 'prosta nr 1';
+      case '12 m.ż.':
+        return 'prosta nr 1';
+      case '18 m.ż.':
+        return 'prosta nr 1';
+      case '2 r.ż.':
+        return 'prosta nr 1';
+      case '3 r.ż.':
+        return 'prosta nr 2';
+      case '4 r.ż.':
+        return 'prosta nr 2';
+      case '5 r.ż.':
+        return 'prosta nr 2';
+      case '6 r.ż.':
+        return 'zakrzywiona nr 2 lub 3';
+      case '7 r.ż.':
+        return 'zakrzywiona nr 2 lub 3';
+      case '8 r.ż.':
+        return 'zakrzywiona nr 2 lub 3';
+      case '9 r.ż.':
+        return 'zakrzywiona nr 2 lub 3';
+      case '10 r.ż.':
+        return 'zakrzywiona nr 2 lub 3';
+      case '11 r.ż.':
+        return 'zakrzywiona nr 2 lub 3';
+      case '12 r.ż.':
+        return 'zakrzywiona nr 2 lub 3';
+      default:
+        return '-1';
+    }
+  }
+
   static String getAdenozine(int waga) {
     String doseInMlRounded = (waga * 0.1).toStringAsPrecision(2);
     String secondDoseRounded = (waga * 0.2).toStringAsPrecision(2);
@@ -304,5 +725,91 @@ class DrugHelper {
   static String getPlyn(int waga) {
     String razy10 = (waga * 10).toString();
     return 'Podaj $razy10 ml we wlewie. \n\nW razie potrzeby można powtórzyć.';
+  }
+
+  static String getAge(String weight) {
+    switch (weight) {
+      case '2 kg':
+        return 'Noworodek';
+      case '3 kg':
+        return 'Noworodek';
+      case '4 kg':
+        return '1 m.ż.';
+      case '5 kg':
+        return '2 m.ż.';
+      case '6 kg':
+        return '3 m.ż.';
+      case '7 kg':
+        return '4 m.ż.';
+      case '8 kg':
+        return '6 m.ż.';
+
+      case '9 kg':
+        return '8 m.ż.';
+      case '10 kg':
+        return '12 m.ż.';
+      case '11 kg':
+        return '18 m.ż.';
+      case '12 kg':
+        return '2 r.ż.';
+      case '13 kg':
+        return '2 r.ż.';
+      case '14 kg':
+        return '3 r.ż.';
+      case '15 kg':
+        return '3 r.ż.';
+      case '16 kg.':
+        return '4 r.ż.';
+      case '17 kg':
+        return '4 r.ż.';
+      case '18 kg':
+        return '5 r.ż.';
+      case '19 kg':
+        return '5 r.ż.';
+      case '20 kg':
+        return '6 r.ż.';
+      case '21 kg':
+        return '6 r.ż.';
+      case '22 kg':
+        return '7 r.ż.';
+      case '23 kg':
+        return '7 r.ż.';
+      case '24 kg':
+        return '7 r.ż.';
+      case '25 kg':
+        return '8 r.ż.';
+      case '26 kg':
+        return '8 r.ż.';
+      case '27 kg':
+        return '9 r.ż.';
+      case '28 kg':
+        return '9 r.ż.';
+      case '29 kg':
+        return '9 r.ż.';
+      case '30 kg':
+        return '9 r.ż.';
+      case '31 kg':
+        return '9 r.ż.';
+      case '32 kg':
+        return '10 r.ż.';
+      case '33 kg':
+        return '10 r.ż.';
+      case '34 kg':
+        return '10 r.ż.';
+      case '35 kg':
+        return '11 r.ż.';
+      case '36 kg':
+        return '11 r.ż.';
+      case '37 kg':
+        return '11 r.ż.';
+      case '38 kg':
+        return '11 r.ż.';
+      case '39 kg':
+        return '12 r.ż.';
+      case '40 kg':
+        return '12 r.ż.';
+      default:
+        return '-1';
+    }
   }
 }

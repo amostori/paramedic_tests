@@ -1,8 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_picker/picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:paramedic_tests/src/features/leki_u_dzieci/presentation/widgets/one_row.dart';
@@ -11,14 +9,14 @@ import 'package:paramedic_tests/src/features/leki_u_dzieci/providers/man_provide
 
 import '../utils/my_painter.dart';
 
-class DrawingScreen extends ConsumerStatefulWidget {
-  const DrawingScreen({super.key});
+class LekiUDzieciScreen extends ConsumerStatefulWidget {
+  const LekiUDzieciScreen({super.key});
 
   @override
-  ConsumerState createState() => _DrawingScreenState();
+  ConsumerState createState() => _LekiUDzieciScreenState();
 }
 
-class _DrawingScreenState extends ConsumerState<DrawingScreen> {
+class _LekiUDzieciScreenState extends ConsumerState<LekiUDzieciScreen> {
   final offsets = <Offset?>[];
   final ThemeData specialThemeData = ThemeData(
     brightness: Brightness.light,
@@ -40,63 +38,63 @@ class _DrawingScreenState extends ConsumerState<DrawingScreen> {
           ),
           body: Column(
             children: [
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.black12,
-                  width: double.infinity,
-                  child: GestureDetector(
-                    onPanDown: (details) {
-                      setState(() {
-                        offsets.add(details.localPosition);
-                      });
-                    },
-                    onPanUpdate: (details) {
-                      setState(() {
-                        offsets.add(details.localPosition);
-                      });
-                    },
-                    onPanEnd: (details) {
-                      setState(() {
-                        offsets.add(null);
-                      });
-                    },
-                    child: Center(
-                      child: CustomPaint(
-                        painter: MyPainter(offsets: offsets),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SizedBox(
-                            height: MediaQuery.of(context).size.height,
-                            width: MediaQuery.of(context).size.width,
-                            child: Column(
-                              children: [
-                                const OneRowPaint(
-                                  title: 'AVPU:',
-                                  descript: '',
-                                ),
-                                OneRowPaint(
-                                  title: 'Częstość oddechu: ',
-                                  descript: man.breathingRate,
-                                ),
-                                const OneRowPaint(
-                                  title: 'Saturacja: ',
-                                  descript: '',
-                                ),
-                                OneRowPaint(
-                                  title: 'Akcja serca: ',
-                                  descript: man.pulseRate,
-                                ),
-                                OneRowPaint(
-                                  title: 'Minimalne ciśnienie: ',
-                                  descript: man.bloodPressure,
-                                ),
-                                OneRowPaint(
-                                  title: 'Glukoza: ',
-                                  descript: man.glucoseLevel,
-                                ),
-                              ],
-                            ),
+              Container(
+                color: Colors.black12,
+                width: double.infinity,
+                child: GestureDetector(
+                  onPanDown: (details) {
+                    setState(() {
+                      offsets.add(details.localPosition);
+                    });
+                  },
+                  onPanUpdate: (details) {
+                    setState(() {
+                      offsets.add(details.localPosition);
+                    });
+                  },
+                  onPanEnd: (details) {
+                    setState(() {
+                      offsets.add(null);
+                    });
+                  },
+                  child: Center(
+                    child: CustomPaint(
+                      painter: MyPainter(offsets: offsets),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          child: Column(
+                            children: [
+                              const OneRowPaint(
+                                title: 'AVPU:',
+                                descript: '',
+                              ),
+                              OneRowPaint(
+                                title: 'Częstość oddechu: ',
+                                descript: man.breathingRate,
+                              ),
+                              const OneRowPaint(
+                                title: 'Saturacja: ',
+                                descript: '',
+                              ),
+                              OneRowPaint(
+                                title: 'Akcja serca: ',
+                                descript: man.pulseRate,
+                              ),
+                              OneRowPaint(
+                                title: 'Minimalne ciśnienie: ',
+                                descript: man.bloodPressure,
+                              ),
+                              OneRowPaint(
+                                title: 'Glukoza: ',
+                                descript: man.glucoseLevel,
+                              ),
+                              const OneRowPaint(
+                                title: 'Temperatura i skóra: ',
+                                descript: '',
+                              ),
+                            ],
                           ),
                         ),
                       ),
