@@ -16,11 +16,13 @@ class OneRowPaint extends StatelessWidget {
               Expanded(
                   child: Text(
                 title,
+                textAlign: TextAlign.center,
                 style: const TextStyle(fontWeight: FontWeight.bold),
               )),
               Expanded(child: Text(descript)),
               const Expanded(
                   child: Text(
+                textAlign: TextAlign.center,
                 '',
               )),
             ],

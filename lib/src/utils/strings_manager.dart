@@ -5,4 +5,5 @@ class StringsManager {
   static const String breathingRate = 'breathing_rate';
   static const String pulseRate = 'pulse_rate';
   static const String ventRate = 'vent_rate';
+  static const String addNewWord = 'add_new_word';
 }

@@ -5,7 +5,9 @@
   "weight": "Waga",
   "breathing_rate": "Częstość oddechu",
   "pulse_rate": "Częstość akcji serca",
-  "vent_rate": "Częstość wentylacji"
+  "vent_rate": "Częstość wentylacji",
+  "add_new_word": "Dodaj nowe słowo"
+
 
 
 }

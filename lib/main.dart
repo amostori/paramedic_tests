@@ -2,8 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:paramedic_tests/src/app_routing/app_routing.dart';
+import 'package:paramedic_tests/src/features/french/adding_word/model/word_model.dart';
 import 'package:paramedic_tests/src/utils/constants.dart';
 import 'package:paramedic_tests/src/utils/strings_manager.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 // Lokalizacja:
 // 1. Przygotuj pliki json z tłumaczeniami (en.json, pl.json)
@@ -21,6 +23,9 @@ import 'package:paramedic_tests/src/utils/strings_manager.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(WordModelAdapter());
+  await Hive.openBox<WordModel>(Constants.wordBox);
   runApp(
     ProviderScope(
       child: EasyLocalization(

@@ -81,7 +81,7 @@ class Man extends StateNotifier<ManModel> {
       laryngoscope: DrugHelper.getLyzka(age),
       laryngMask: DrugHelper.getMaskaKrtaniowa(waga),
       defibrillation: '${waga * 4} J',
-      cardioversion: 'I dawka: $waga, II dawka ${waga * 2}',
+      cardioversion: 'I dawka: $waga J, II dawka ${waga * 2} J',
       adenosine: DrugHelper.getAdenozine(waga),
       adrenalin: DrugHelper.getAdrenaline(waga),
       adrenalinAnafilaksja: DrugHelper.getAdrenalineAnafilaksja(waga),

@@ -15,10 +15,16 @@ class OneRow extends StatelessWidget {
             children: [
               Expanded(
                   child: Text(
+                textAlign: TextAlign.center,
                 title,
                 style: const TextStyle(fontWeight: FontWeight.bold),
               )),
-              Expanded(child: Text(descript)),
+              Expanded(
+                child: Text(
+                  descript,
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ],
           ),
           Container(
