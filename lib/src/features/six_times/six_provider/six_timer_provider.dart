@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:paramedic_tests/src/features/six_times/model/six_model.dart';
-import 'package:paramedic_tests/src/features/weight/providers/archive/weight_provider.dart';
+import '../../../utils/providers/delay_provider.dart';
 
 class SixTimer extends StateNotifier<SixModel> {
   SixTimer({required this.delay})

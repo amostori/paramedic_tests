@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../utils/constants.dart';
+import '../../../../utils/providers/delay_provider.dart';
 import '../../adding_word/model/word_model.dart';
 import '../hive_functions/HiveFunctions.dart';
 
@@ -50,4 +51,3 @@ final wordProvider = StateNotifierProvider<Word, WordModel>((ref) {
   final hive = ref.watch(hiveProvider);
   return Word(delay: delay, hiveFunctions: hive);
 });
-final delayProvider = StateProvider<int>((ref) => 2);

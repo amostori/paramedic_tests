@@ -3,8 +3,9 @@ import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:paramedic_tests/src/features/breath/breathing_model/breathing_model.dart';
-import 'package:paramedic_tests/src/features/weight/providers/archive/weight_provider.dart';
 import 'package:paramedic_tests/src/utils/age_helper.dart';
+
+import '../../../utils/providers/delay_provider.dart';
 
 class Breathing extends StateNotifier<BreathingModel> {
   Breathing({

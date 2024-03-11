@@ -343,7 +343,6 @@ class _LekiUDzieciScreenState extends ConsumerState<LekiUDzieciScreen> {
         hideHeader: true,
         changeToFirst: false,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        textStyle: const TextStyle(color: Colors.white),
         title: const Text("Wybierz wiek i/lub wagę pacjenta"),
         cancelText: 'Anuluj',
         confirmText: 'Zatwierdź',

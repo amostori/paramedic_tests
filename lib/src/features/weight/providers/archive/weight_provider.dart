@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../utils/providers/delay_provider.dart';
+
 class Weight extends StateNotifier<AsyncValue<int>> {
   Weight(
     this.delay, {
@@ -81,8 +83,4 @@ final weightProvider =
     StateNotifierProvider.family<Weight, AsyncValue<int>, int>((ref, age) {
   final delay = ref.watch(delayProvider);
   return Weight(delay, age: age);
-});
-
-final delayProvider = StateProvider<int>((ref) {
-  return 2;
 });

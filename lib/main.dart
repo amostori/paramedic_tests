@@ -51,9 +51,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: StringsManager.appName.tr(),
       theme: ThemeData(
+        brightness: Brightness.light,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-          brightness: Brightness.dark,
+          seedColor: Colors.black38,
         ),
         useMaterial3: true,
       ),

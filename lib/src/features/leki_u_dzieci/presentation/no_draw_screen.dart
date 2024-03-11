@@ -192,7 +192,7 @@ class NoDrawScreenForLeki extends ConsumerWidget {
     );
   }
 
-  var pickerData = '''
+  final pickerData = '''
 [
     [
         "Brak danych",
@@ -272,7 +272,6 @@ class NoDrawScreenForLeki extends ConsumerWidget {
         hideHeader: true,
         changeToFirst: false,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        textStyle: const TextStyle(color: Colors.white),
         title: const Text("Wybierz wiek i/lub wagę pacjenta"),
         cancelText: 'Anuluj',
         confirmText: 'Zatwierdź',

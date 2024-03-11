@@ -3,7 +3,8 @@ import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:paramedic_tests/src/features/drugs/drug_model/drug_model.dart';
-import 'package:paramedic_tests/src/features/weight/providers/archive/weight_provider.dart';
+
+import '../../../utils/providers/delay_provider.dart';
 
 class Drug extends StateNotifier<DrugModel> {
   final int delay;

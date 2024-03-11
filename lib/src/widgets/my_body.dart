@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../features/weight/providers/archive/weight_provider.dart';
 import '../presentation/style_manager.dart';
+import '../utils/providers/delay_provider.dart';
 
 class MyBody extends ConsumerWidget {
   const MyBody({

@@ -1,9 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:paramedic_tests/src/features/french/home/presentation/widgets/custom_paint.dart';
 import '../../../../app_routing/app_routing.dart';
 import '../../../../utils/constants.dart';
+import '../../../../utils/providers/delay_provider.dart';
+import '../../../../widgets/floating_button.dart';
 import '../word_provider/word_provider.dart';
 
 class DrawingScreen extends ConsumerStatefulWidget {
@@ -19,10 +22,11 @@ class _DrawingScreenState extends ConsumerState<DrawingScreen> {
   @override
   Widget build(BuildContext context) {
     final word = ref.watch(wordProvider);
+    final delay = ref.watch(delayProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('StringManager.appName.tr()'),
+        title: Text('$delay s'),
         actions: [
           IconButton(
               onPressed: () {
@@ -35,51 +39,52 @@ class _DrawingScreenState extends ConsumerState<DrawingScreen> {
                   offsets.clear();
                 });
               },
-              icon: const Icon(Icons.clear))
+              icon: const Icon(Icons.clear)),
+          IconButton(
+              onPressed: () {
+                context.goNamed(AppRoute.addingWord.name);
+              },
+              icon: const Icon(Icons.add)),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // ref.read(wordProvider.notifier).showWord();
-          context.goNamed(AppRoute.addingWord.name);
-        },
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: const FloatingButton(),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Expanded(
-              flex: 1,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    word.foreignWord,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(
-                    width: double.infinity,
-                    height: 50.0,
-                  ),
-                  word.translationWord == Constants.progressIndicator
-                      ? const SizedBox(
-                          height: 50,
-                          width: 50,
-                          child: CircularProgressIndicator())
-                      : SizedBox(
-                          height: 50,
-                          width: double.infinity,
-                          child: Text(
-                            word.translationWord,
-                            textAlign: TextAlign.center,
-                          )),
-                ],
-              ),
-            ),
-          ),
           Expanded(
             flex: 1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  word.foreignWord,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  width: double.infinity,
+                  height: 50.0,
+                ),
+                word.translationWord == Constants.progressIndicator
+                    ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator())
+                    : SizedBox(
+                        height: 20,
+                        width: double.infinity,
+                        child: Text(
+                          word.translationWord,
+                          textAlign: TextAlign.center,
+                        )),
+              ],
+            ),
+          ),
+          Container(
+            height: 1,
+            color: Colors.black38,
+            width: double.infinity,
+          ),
+          Expanded(
+            flex: 2,
             child: GestureDetector(
               onPanDown: (details) {
                 setState(() {
@@ -98,8 +103,7 @@ class _DrawingScreenState extends ConsumerState<DrawingScreen> {
               },
               child: CustomPaint(
                 painter: MyPainter(offsets: offsets),
-                child: Container(
-                  color: Colors.black12,
+                child: const SizedBox(
                   width: double.infinity,
                   height: double.infinity,
                 ),

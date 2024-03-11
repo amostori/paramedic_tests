@@ -12,7 +12,6 @@ import '../features/french/adding_word/presentation/adding_word_screen.dart';
 import '../features/home/presentation/home.dart';
 import '../features/mask/presentation/mask_screen.dart';
 import '../features/pulse/presentation/pulse_screen.dart';
-import '../features/ventilation/presentation/archive/vent_screen.dart';
 import '../features/weight/presentation/weight_screen.dart';
 import '../presentation/error_page.dart';
 

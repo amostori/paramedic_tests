@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:paramedic_tests/src/features/saturation/saturation_model/saturation_model.dart';
-import 'package:paramedic_tests/src/features/weight/providers/archive/weight_provider.dart';
+import '../../../utils/providers/delay_provider.dart';
 
 class SaturationState extends StateNotifier<SaturationModel> {
   SaturationState(this.delay)

@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:paramedic_tests/src/features/weight/providers/archive/weight_provider.dart';
 import 'package:paramedic_tests/src/features/weight/weight_model/weight_model.dart';
 import 'package:paramedic_tests/src/utils/age_helper.dart';
+
+import '../../../utils/providers/delay_provider.dart';
 
 class Weight extends StateNotifier<WeightModel> {
   Weight({

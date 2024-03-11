@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../features/weight/providers/archive/weight_provider.dart';
+import '../utils/providers/delay_provider.dart';
 
 class FloatingButton extends ConsumerWidget {
   const FloatingButton({super.key});
