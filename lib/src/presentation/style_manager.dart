@@ -8,4 +8,5 @@ class StyleManager {
   static const TextStyle mediumText =
       TextStyle(fontSize: 25, fontWeight: FontWeight.bold);
   static const TextStyle smallText = TextStyle(fontSize: 18);
+  static const TextStyle smallBoldText = TextStyle(fontSize: 18);
 }

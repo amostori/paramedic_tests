@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:paramedic_tests/src/features/leki_u_dzieci/utils/drugs_helper.dart';
 
+import '../../../utils/strings_manager.dart';
 import '../man_model/man_model.dart';
 
 class Man extends StateNotifier<ManModel> {
@@ -46,24 +48,28 @@ class Man extends StateNotifier<ManModel> {
           salbutamol: '',
         ));
   int waga = 0;
-  String wiek = 'Brak danych';
+  String wiek = StringsManager.noData.tr();
   void showPatient(String age, String weight) {
-    if (age != 'Brak danych' && weight == 'Brak danych') {
-      waga = DrugHelper.getWeight(age);
+    if (age != StringsManager.noData.tr() &&
+        weight == StringsManager.noData.tr()) {
+      waga = DrugHelper.convertToWeight(age);
       state = state.copyWith(
         age: age,
         weight: waga,
       );
-    } else if (weight == 'Brak danych' && age == 'Brak danych') {
+    } else if (weight == StringsManager.noData.tr() &&
+        age == StringsManager.noData.tr()) {
       return;
-    } else if (age == 'Brak danych' && weight != 'Brak danych') {
+    } else if (age == StringsManager.noData.tr() &&
+        weight != StringsManager.noData.tr()) {
       age = DrugHelper.getAge(weight);
       waga = int.parse(weight.split(' ')[0]);
       state = state.copyWith(
         age: age,
         weight: DrugHelper.getWeight(age),
       );
-    } else if (age != 'Brak danych' && weight != 'Brak danych') {
+    } else if (age != StringsManager.noData.tr() &&
+        weight != StringsManager.noData.tr()) {
       waga = int.parse(weight.split(' ')[0]);
       wiek = DrugHelper.getAge(weight);
       state = state.copyWith(

@@ -6,8 +6,33 @@
   "breathing_rate": "Częstość oddechu",
   "pulse_rate": "Częstość akcji serca",
   "vent_rate": "Częstość wentylacji",
-  "add_new_word": "Dodaj nowe słowo"
-
-
+  "add_new_word": "Dodaj nowe słowo",
+  "no_data": "Brak danych",
+  "newborn": "Noworodek",
+  "month1": "1 m.ż.",
+  "month2": "2 m.ż.",
+  "month3": "3 m.ż.",
+  "month4": "4 m.ż.",
+  "month5": "5 m.ż.",
+  "month6": "6 m.ż.",
+  "month7": "7 m.ż.",
+  "month8": "8 m.ż.",
+  "month9": "9 m.ż.",
+  "month10": "10 m.ż.",
+  "month11": "11 m.ż.",
+  "month12": "12 m.ż.",
+  "month18": "18 m.ż.",
+  "year2": "2 r.ż.",
+  "year3": "3 r.ż.",
+  "year4": "4 r.ż.",
+  "year5": "5 r.ż.",
+  "year6": "6 r.ż.",
+  "year7": "7 r.ż.",
+  "year8": "8 r.ż.",
+  "year9": "9 r.ż.",
+  "year10": "10 r.ż.",
+  "year11": "11 r.ż.",
+  "year12": "12 r.ż.",
+  "year13": ">12 r.ż."
 
 }

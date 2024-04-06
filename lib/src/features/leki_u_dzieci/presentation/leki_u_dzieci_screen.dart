@@ -1,10 +1,12 @@
 import 'dart:convert';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_picker/picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:paramedic_tests/src/features/leki_u_dzieci/presentation/widgets/one_row.dart';
 import 'package:paramedic_tests/src/features/leki_u_dzieci/presentation/widgets/one_row_paint.dart';
 import 'package:paramedic_tests/src/features/leki_u_dzieci/providers/man_provider.dart';
+import 'package:paramedic_tests/src/utils/strings_manager.dart';
 
 import '../utils/my_painter.dart';
 
@@ -266,35 +268,35 @@ class _LekiUDzieciScreenState extends ConsumerState<LekiUDzieciScreen> {
   var pickerData = '''
 [
     [
-        "Brak danych",
-        "Noworodek",
-        "1 m.ż.",
-        "2 m.ż.",
-        "3 m.ż.",
-        "4 m.ż.",
-        "5 m.ż.",
-        "6 m.ż.",
-        "7 m.ż.",
-        "8 m.ż.",
-        "9 m.ż.",
-        "10 m.ż.",
-        "11 m.ż.",
-        "12 m.ż.",
-        "18 m.ż.",
-        "2 r.ż.",
-        "3 r.ż.",
-        "4 r.ż.",
-        "5 r.ż.",
-        "6 r.ż.",
-        "7 r.ż.",
-        "8 r.ż.",
-        "9 r.ż.",
-        "10 r.ż.",
-        "11 r.ż.",
-        "12 r.ż."
+        "${StringsManager.noData.tr()}",
+        "${StringsManager.newborn.tr()}",
+        "${StringsManager.month1.tr()}",
+        "${StringsManager.month2.tr()}",
+        "${StringsManager.month3.tr()}",
+        "${StringsManager.month4.tr()},
+        "${StringsManager.month5.tr()},
+        "${StringsManager.month6.tr()},
+        "${StringsManager.month7.tr()},
+        "${StringsManager.month8.tr()},
+        "${StringsManager.month9.tr()},
+        "${StringsManager.month10.tr()}",
+        "${StringsManager.month11.tr()}",
+        "${StringsManager.month12.tr()}",
+        "${StringsManager.month18.tr()}",
+        "${StringsManager.year2.tr()}",
+        "${StringsManager.year3.tr()}",
+        "${StringsManager.year4.tr()}",
+        "${StringsManager.year5.tr()}",
+        "${StringsManager.year6.tr()}",
+        "${StringsManager.year7.tr()}",
+        "${StringsManager.year8.tr()}",
+        "${StringsManager.year9.tr()}",
+        "${StringsManager.year10.tr()}",
+        "${StringsManager.year11.tr()}",
+        "${StringsManager.year12.tr()}",
     ],
     [
-        "Brak danych",
+        "${StringsManager.noData.tr()}",
         "2 kg",
         "3 kg",
         "4 kg",

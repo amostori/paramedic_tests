@@ -1,59 +1,123 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:paramedic_tests/src/utils/strings_manager.dart';
+
 class DrugHelper {
+  // static String getBreathingRate(String age) {
+  //   switch (age) {
+  //     case 'Noworodek':
+  //       return '30 - 60/min';
+  //     case '1 m.ż.':
+  //       return '30 - 50/min';
+  //     case '2 m.ż.':
+  //       return '30 - 50/min';
+  //     case '3 m.ż.':
+  //       return '30 - 50/min';
+  //     case '4 m.ż.':
+  //       return '30 - 50/min';
+  //     case '5 m.ż.':
+  //       return '30 - 50/min';
+  //     case '6 m.ż.':
+  //       return '30 - 50/min';
+  //     case '7 m.ż.':
+  //       return '30 - 50/min';
+  //     case '8 m.ż.':
+  //       return '30 - 50/min';
+  //     case '9 m.ż.':
+  //       return '30 - 50/min';
+  //     case '10 m.ż.':
+  //       return '30 - 50/min';
+  //     case '11 m.ż.':
+  //       return '30 - 50/min';
+  //     case '12 m.ż.':
+  //       return '30 - 50/min';
+  //     case '18 m.ż.':
+  //       return '30 - 50/min';
+  //     case '2 r.ż.':
+  //       return '24 - 40/min';
+  //     case '3 r.ż.':
+  //       return '24 - 40/min';
+  //     case '4 r.ż.':
+  //       return '24 - 40/min';
+  //     case '5 r.ż.':
+  //       return '24 - 40/min';
+  //     case '6 r.ż.':
+  //       return '20 - 30/min';
+  //     case '7 r.ż.':
+  //       return '20 - 30/min';
+  //     case '8 r.ż.':
+  //       return '20 - 30/min';
+  //     case '9 r.ż.':
+  //       return '20 - 30/min';
+  //     case '10 r.ż.':
+  //       return '20 - 30/min';
+  //     case '11 r.ż.':
+  //       return '20 - 30/min';
+  //     case '12 r.ż.':
+  //       return '20 - 30/min';
+  //     default:
+  //       return '-1';
+  //   }
+  // }
   static String getBreathingRate(String age) {
-    switch (age) {
-      case 'Noworodek':
-        return '30 - 60/min';
-      case '1 m.ż.':
-        return '30 - 50/min';
-      case '2 m.ż.':
-        return '30 - 50/min';
-      case '3 m.ż.':
-        return '30 - 50/min';
-      case '4 m.ż.':
-        return '30 - 50/min';
-      case '5 m.ż.':
-        return '30 - 50/min';
-      case '6 m.ż.':
-        return '30 - 50/min';
-      case '7 m.ż.':
-        return '30 - 50/min';
-      case '8 m.ż.':
-        return '30 - 50/min';
-      case '9 m.ż.':
-        return '30 - 50/min';
-      case '10 m.ż.':
-        return '30 - 50/min';
-      case '11 m.ż.':
-        return '30 - 50/min';
-      case '12 m.ż.':
-        return '30 - 50/min';
-      case '18 m.ż.':
-        return '30 - 50/min';
-      case '2 r.ż.':
-        return '24 - 40/min';
-      case '3 r.ż.':
-        return '24 - 40/min';
-      case '4 r.ż.':
-        return '24 - 40/min';
-      case '5 r.ż.':
-        return '24 - 40/min';
-      case '6 r.ż.':
-        return '20 - 30/min';
-      case '7 r.ż.':
-        return '20 - 30/min';
-      case '8 r.ż.':
-        return '20 - 30/min';
-      case '9 r.ż.':
-        return '20 - 30/min';
-      case '10 r.ż.':
-        return '20 - 30/min';
-      case '11 r.ż.':
-        return '20 - 30/min';
-      case '12 r.ż.':
-        return '20 - 30/min';
-      default:
-        return '-1';
+    if (age == StringsManager.newborn.tr()) {
+      return '30 - 60/min';
+    } else {
+      return '-1';
     }
+    // switch (age) {
+    //   case 'Noworodek':
+    //     return '30 - 60/min';
+    //   case '1 m.ż.':
+    //     return '30 - 50/min';
+    //   case '2 m.ż.':
+    //     return '30 - 50/min';
+    //   case '3 m.ż.':
+    //     return '30 - 50/min';
+    //   case '4 m.ż.':
+    //     return '30 - 50/min';
+    //   case '5 m.ż.':
+    //     return '30 - 50/min';
+    //   case '6 m.ż.':
+    //     return '30 - 50/min';
+    //   case '7 m.ż.':
+    //     return '30 - 50/min';
+    //   case '8 m.ż.':
+    //     return '30 - 50/min';
+    //   case '9 m.ż.':
+    //     return '30 - 50/min';
+    //   case '10 m.ż.':
+    //     return '30 - 50/min';
+    //   case '11 m.ż.':
+    //     return '30 - 50/min';
+    //   case '12 m.ż.':
+    //     return '30 - 50/min';
+    //   case '18 m.ż.':
+    //     return '30 - 50/min';
+    //   case '2 r.ż.':
+    //     return '24 - 40/min';
+    //   case '3 r.ż.':
+    //     return '24 - 40/min';
+    //   case '4 r.ż.':
+    //     return '24 - 40/min';
+    //   case '5 r.ż.':
+    //     return '24 - 40/min';
+    //   case '6 r.ż.':
+    //     return '20 - 30/min';
+    //   case '7 r.ż.':
+    //     return '20 - 30/min';
+    //   case '8 r.ż.':
+    //     return '20 - 30/min';
+    //   case '9 r.ż.':
+    //     return '20 - 30/min';
+    //   case '10 r.ż.':
+    //     return '20 - 30/min';
+    //   case '11 r.ż.':
+    //     return '20 - 30/min';
+    //   case '12 r.ż.':
+    //     return '20 - 30/min';
+    //   default:
+    //     return '-1';
+    // }
   }
 
   static int getWeight(String age) {
@@ -110,6 +174,16 @@ class DrugHelper {
         return 40;
       default:
         return -1;
+    }
+  }
+
+  static int convertToWeight(String age) {
+    if (age == StringsManager.newborn.tr()) {
+      return 3;
+    } else if (age == StringsManager.month1.tr()) {
+      return 4;
+    } else {
+      return -1;
     }
   }
 
